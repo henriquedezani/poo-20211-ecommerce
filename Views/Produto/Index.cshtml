@@ -1,0 +1,23 @@
+﻿@model List<Produto>
+
+<table class="table table-hover">
+    @foreach (var prod in Model)
+    {
+<tr>
+    <td>@prod.IdProduto</td>
+    <td>@prod.Nome</td>
+    <td>@prod.Descricao</td>
+    <td>@prod.Valor</td>
+    <td>@prod.Categoria</td>
+    <td>
+        <a class="btn btn-sm btn-danger"
+           href="/produto/delete/@prod.IdProduto">Apagar</a>
+        <a class="btn btn-sm btn-warning"
+           href="/produto/update/@prod.IdProduto">Editar</a>
+        <a class="btn btn-sm btn-info"
+           href="/carrinho/comprar/@prod.IdProduto">Comprar</a>
+    </td>
+</tr>}
+</table>
+
+<a class="btn btn-primary" href="/produto/create">Adcionar</a>
