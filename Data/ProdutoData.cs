@@ -34,7 +34,7 @@ namespace Ecommerce2021a.Data
 
         //Read = Select
 
-        public List<Produto>Read()
+        public List<Produto> Read()
         {
             List<Produto> lista = new List<Produto>();
 

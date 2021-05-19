@@ -7,22 +7,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+using inteiro = System.Int32; // apelido.
+
 namespace Ecommerce2021a.Controllers
 {
         //Um controlador é apenas uma classe que deriva (herda) da classe base
         //System.Web.Mvc.Controller.  Como um controlador herda dessa classe
         //base, um controlador herda vários métodos úteis
-        public class ProdutoController : Controller
+        public class ProdutoController : Controller // controller
         {
             //O IAction tipo de retorno é apropriado quando vários  ActionResult
             //tipos de retorno são possíveis em uma ação
             //Os tipo AcrionResult representam vários códigos de status HTTP
-            public IActionResult Index()
+            public IActionResult Index() // action
             {
                 //Criando um objeto data da classe ProdutoData
-                using (var data = new ProdutoData())
-                    return View(data.Read());
-                //data.Read() chama a execução do método Read (Select + From Produtos)
+                using(ProdutoData data = new ProdutoData()) // abrindo a conexão
+                { 
+                    List<Produto> lista = data.Read();
+                    return View(lista);
+                } // Dispose();
             }
 
             public IActionResult Create()
@@ -70,6 +75,7 @@ namespace Ecommerce2021a.Controllers
                 return RedirectToAction("Index");
             }
 
+            // http://localhost:5001/produto/update/5
             [HttpGet]
             public IActionResult Update(int id)
             {

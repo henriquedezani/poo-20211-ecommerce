@@ -11,16 +11,17 @@ namespace Ecommerce2021a.Data
         //atributo: vai nos permitir conectar com o Banco de Dados
         protected SqlConnection connectionDB;
         //string de conexão como banco de dados
-
         
 
         protected Data()
         {
             try
             {
-                string strConexao = @"Data Souce = DESKTOP-Q909P6C\SQLEXPRESS;
-                            Initial Catalog = BDEcommerce;
-                            Integrated Security = false";
+                string strConexao = @"Data Source = localhost;
+                            Initial Catalog = bdecommerce;
+                            Integrated Security = false;
+                            User Id = sa;
+                            Password = A1b2c3d4e5!";
 
                 connectionDB = new SqlConnection(strConexao);
 
